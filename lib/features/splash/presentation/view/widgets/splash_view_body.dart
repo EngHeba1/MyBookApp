@@ -1,5 +1,8 @@
 import 'package:bookly/core/constants/app_assets.dart';
+import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SplashViewbody extends StatefulWidget {
   const SplashViewbody({super.key});
@@ -14,12 +17,8 @@ class _SplashViewbodyState extends State<SplashViewbody> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    animationController=AnimationController(
-        vsync: this,         //vsync  <SingleTickerProviderStateMixin>
-        duration: const Duration(seconds: 2));
-
-    slidingAnimation=Tween<Offset>(begin: const Offset(0,1 ),end:Offset.zero).animate(animationController);
-    animationController.forward(); //start animation
+    initSlidAnimation(); //start animation
+    navigatToHome(); //go to home page
 
   }
 
@@ -44,5 +43,18 @@ class _SplashViewbodyState extends State<SplashViewbody> with SingleTickerProvid
         )
       ],
     );
+  }
+  void initSlidAnimation() {
+    animationController=AnimationController(
+        vsync: this,         //vsync  <SingleTickerProviderStateMixin>
+        duration: const Duration(seconds: 2));
+
+    slidingAnimation=Tween<Offset>(begin: const Offset(0,1 ),end:Offset.zero).animate(animationController);
+    animationController.forward(); //start animation
+  }
+  void navigatToHome(){
+    Future.delayed(const Duration(seconds: 3),() {
+      Get.to(()=>HomeView(),transition:Transition.fade);
+    },);
   }
 }
