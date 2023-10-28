@@ -1,3 +1,4 @@
+import 'package:bookly/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,8 @@ class Bookly extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+    theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: AppColor.primaryColor),
       home: Splash()
     );
   }
