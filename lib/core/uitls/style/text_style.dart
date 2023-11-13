@@ -23,5 +23,6 @@ class MyTextStyle{   // هيحدد الستايل  الي هينشأها بنا�
    fontSize: 30,
    fontWeight: FontWeight.normal,
    fontFamily: "GTSectraFine",
+   color: Colors.white
  );
 }
