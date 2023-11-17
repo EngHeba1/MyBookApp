@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 
+import '../../features/home/presentation/views/book_details_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
 import '../../features/splash/presentation/view/widgets/splash_view_body.dart';
 
@@ -14,7 +15,12 @@ class AppRouter{
         path: '/HomeView',
         builder: (context, state) =>HomeView(),
       ),
+      GoRoute(
+        path: '/BookDetailsView',
+        builder: (context, state) => BookDetailsView(),
+      ),
     ],
   );
+
 
 }
