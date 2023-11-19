@@ -2,6 +2,7 @@ import 'package:bookly/core/constants/app_assets.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../core/uitls/style/text_style.dart';
 
@@ -40,7 +41,7 @@ class _SplashViewbodyState extends State<SplashViewbody> with SingleTickerProvid
           builder: (context, child) =>
             SlideTransition(
               position: slidingAnimation,
-              child: Text('Read Books For Free',style: MyTextStyle.textStyle20(),)),
+              child: Text('Read Books For Free',style: MyTextStyle.textStyle18().copyWith(fontFamily: 'GTSectraFine'),)),
         )
       ],
     );

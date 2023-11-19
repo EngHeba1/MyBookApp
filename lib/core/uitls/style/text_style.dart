@@ -12,7 +12,9 @@ class MyTextStyle{   // هيحدد الستايل  الي هينشأها بنا�
      );
  static TextStyle textStyle18()=> TextStyle(
   fontSize: 18,
-  fontWeight: FontWeight.w600
+  fontWeight: FontWeight.w600,
+     color: Colors.white,
+   fontStyle: FontStyle.normal,decoration: TextDecoration.none
  );
  static TextStyle textStyle20()=> TextStyle(
      fontSize: 20,
