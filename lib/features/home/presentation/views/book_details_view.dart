@@ -9,6 +9,7 @@ import '../../../../core/uitls/style/text_style.dart';
 import '../widgets/books_action.dart';
 import '../widgets/custom_book_details_appbar.dart';
 import '../widgets/feture_list_view_item.dart';
+import '../widgets/simeller_boxs_listview.dart';
 
 class BookDetailsView extends StatelessWidget {
   const BookDetailsView({super.key});
@@ -34,14 +35,19 @@ class BookDetailsView extends StatelessWidget {
               SizedBox(height: 4.h),
               Opacity(
                   opacity: .7,
-                  child: Text("Rudyard Kipling",
+                  child: Text("     Rudyard Kipling",
                       style: MyTextStyle.textStyle18().copyWith(
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.italic))),
-              SizedBox(height: 10.h),
-              BookRating(),
+              SizedBox(height: 14.h),
+              Center(child: BookRating()),
               SizedBox(height: 37.h),
               BookAction(),
+              SizedBox(height: 30.h),
+              Align(alignment: Alignment.centerLeft,
+                  child: Text("You can also like",)),
+              SizedBox(height: 8.h),
+              BestViewListView()
 
             ],
           ),
