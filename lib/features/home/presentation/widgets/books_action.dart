@@ -14,15 +14,17 @@ class BookAction extends StatelessWidget {
         Expanded(
           child: CustomButton(
               text: "19.99€",
-              style: MyTextStyle.textStyle18().copyWith(color: Colors.black,fontWeight: FontWeight.normal),
+              style: MyTextStyle.textStyle18()
+                  .copyWith(color: Colors.black, fontWeight: FontWeight.normal),
               color: Colors.white,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(16),
                   topLeft: Radius.circular(16))),
         ),
         Expanded(
-          child: CustomButton(text: "Free preview",
-              style:  MyTextStyle.textStyle18(),
+          child: CustomButton(
+              text: "Free preview",
+              style: MyTextStyle.textStyle18(),
               color: AppColors.orange,
               borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(16),

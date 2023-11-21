@@ -8,7 +8,7 @@ import 'core/uitls/app_router.dart';
 import 'features/splash/presentation/view/splash_view.dart';
 
 void main() {
-  runApp( Bookly());
+  runApp(Bookly());
 }
 
 class Bookly extends StatelessWidget {
@@ -24,8 +24,8 @@ class Bookly extends StatelessWidget {
           return MaterialApp.router(
             routerConfig: AppRouter.router,
             debugShowCheckedModeBanner: false,
-            theme: ThemeData.dark().copyWith(
-                scaffoldBackgroundColor: AppColor.primaryColor),
+            theme: ThemeData.dark()
+                .copyWith(scaffoldBackgroundColor: AppColor.primaryColor),
 
             // home: Splash()
           );

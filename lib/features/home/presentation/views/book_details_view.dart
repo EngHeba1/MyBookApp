@@ -19,7 +19,7 @@ class BookDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body:BookDetailsBody(),
+        body: BookDetailsBody(),
       ),
     );
   }

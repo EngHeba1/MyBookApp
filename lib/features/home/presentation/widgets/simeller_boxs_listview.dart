@@ -9,15 +9,15 @@ class BestViewListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height* .15,
+      height: MediaQuery.of(context).size.height * .15,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.symmetric(horizontal:5),
+          padding: EdgeInsets.symmetric(horizontal: 5),
           child: FetureListViewItem(),
         ),
-        itemCount: 4,  ),);
-
-
+        itemCount: 4,
+      ),
+    );
   }
 }

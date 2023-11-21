@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/uitls/style/text_style.dart';
-import '../views/book_details_view.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+class ListViewSearchItem extends StatelessWidget {
+  const ListViewSearchItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: SizedBox(
         height: 125,
         child: GestureDetector(

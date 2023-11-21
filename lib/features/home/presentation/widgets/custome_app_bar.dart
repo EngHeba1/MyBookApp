@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,13 +10,20 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left:24 ,right:24 ,top:40 ,bottom:10 ),
+      padding: const EdgeInsets.only(left: 24, right: 24, top: 40, bottom: 10),
       child: Row(
-   children: [
-  Image.asset(AppAssets.logo,width: 75,height: 30),
-   const Spacer(),
-   IconButton(onPressed: () {}, icon:const Icon(FontAwesomeIcons.magnifyingGlass,size: 18,) )
-],
+        children: [
+          Image.asset(AppAssets.logo, width: 75, height: 30),
+          const Spacer(),
+          IconButton(
+              onPressed: () {
+                GoRouter.of(context).push('/SearchView');
+              },
+              icon: const Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                size: 18,
+              ))
+        ],
       ),
     );
   }

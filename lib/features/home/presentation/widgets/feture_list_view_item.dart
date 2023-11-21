@@ -7,12 +7,13 @@ class FetureListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 2.6 /4,
+      aspectRatio: 2.6 / 4,
       child: Container(
-        decoration: BoxDecoration(  color: Colors.red,
+        decoration: BoxDecoration(
+          color: Colors.red,
           borderRadius: BorderRadius.circular(16),
-          image:DecorationImage (image: AssetImage(AppAssets.test1),fit: BoxFit.fill),
-
+          image: DecorationImage(
+              image: AssetImage(AppAssets.test1), fit: BoxFit.fill),
         ),
       ),
     );

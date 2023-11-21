@@ -13,15 +13,15 @@ class SplashViewbody extends StatefulWidget {
   State<SplashViewbody> createState() => _SplashViewbodyState();
 }
 
-class _SplashViewbodyState extends State<SplashViewbody> with SingleTickerProviderStateMixin{
-  late AnimationController animationController;  //من 0 ل 1 فقط
-  late Animation<Offset> slidingAnimation;  //بيدي القيم الي محتجها
+class _SplashViewbodyState extends State<SplashViewbody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController; //من 0 ل 1 فقط
+  late Animation<Offset> slidingAnimation; //بيدي القيم الي محتجها
   @override
   void initState() {
     super.initState();
     initSlidAnimation(); //start animation
     navigatToHome(); //go to home page
-
   }
 
   @override
@@ -29,35 +29,49 @@ class _SplashViewbodyState extends State<SplashViewbody> with SingleTickerProvid
     animationController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(child: Image.asset(AppAssets.logo)),
-        SizedBox(height: 10,),
-        AnimatedBuilder(   //rebuild this widget only i dont need to use setStat
+        SizedBox(
+          height: 10,
+        ),
+        AnimatedBuilder(
+          //rebuild this widget only i dont need to use setStat
           animation: slidingAnimation,
-          builder: (context, child) =>
-            SlideTransition(
+          builder: (context, child) => SlideTransition(
               position: slidingAnimation,
-              child: Text('Read Books For Free',style: MyTextStyle.textStyle18().copyWith(fontFamily: 'GTSectraFine'),)),
+              child: Text(
+                'Read Books For Free',
+                style: MyTextStyle.textStyle18()
+                    .copyWith(fontFamily: 'GTSectraFine'),
+              )),
         )
       ],
     );
   }
+
   void initSlidAnimation() {
-    animationController=AnimationController(
-        vsync: this,         //vsync  <SingleTickerProviderStateMixin>
+    animationController = AnimationController(
+        vsync: this, //vsync  <SingleTickerProviderStateMixin>
         duration: const Duration(seconds: 2));
 
-    slidingAnimation=Tween<Offset>(begin: const Offset(0,1 ),end:Offset.zero).animate(animationController);
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
+            .animate(animationController);
     animationController.forward(); //start animation
   }
-  void navigatToHome(){
-    Future.delayed(const Duration(seconds: 3),() {
-      //Get.to(()=>HomeView(),transition:Transition.fade);
-      GoRouter.of(context).push("/HomeView");
-    },);
+
+  void navigatToHome() {
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        //Get.to(()=>HomeView(),transition:Transition.fade);
+        GoRouter.of(context).push("/HomeView");
+      },
+    );
   }
 }
