@@ -8,6 +8,7 @@ part 'fetured_books_state.dart';
 
 class FeturedBooksCubit extends Cubit<FeturedBooksState> {
   FeturedBooksCubit(this.homeRepo) : super(FeturedBooksInitial());
+
   HomeRepo homeRepo;
 
  Future<void> fetchFeturedBooks()async{
