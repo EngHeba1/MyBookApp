@@ -10,6 +10,7 @@ void setUp() {
   getIt.registerSingleton<ApiService>(ApiService(
     Dio(),
   ));
+
   getIt.registerSingleton<HomeRepoImplement>(
       HomeRepoImplement(getIt.get<ApiService>()));
 }

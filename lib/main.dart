@@ -16,6 +16,7 @@ import 'features/home/presentation/manger/newst_books_cubit/newst_books_cubit.da
 import 'features/splash/presentation/view/splash_view.dart';
 
 void main() {
+  setUp();
   runApp(Bookly());
 }
 
@@ -27,7 +28,7 @@ class Bookly extends StatelessWidget {
         providers: [
         BlocProvider(create: (context)
     =>
-        FeturedBooksCubit(getIt.get<HomeRepoImplement>())
+        FeturedBooksCubit(getIt.get<HomeRepoImplement>())..fetchFeturedBooks()
     ,),
          BlocProvider(create: (context) =>
       NewstBooksCubit(getIt.get<HomeRepoImplement>())),
