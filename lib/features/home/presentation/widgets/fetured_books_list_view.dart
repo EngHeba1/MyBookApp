@@ -31,7 +31,7 @@ class FeturedBooks extends StatelessWidget {
             ),
           );
         }
-        else if (state is FeturedBooksFailure) {
+         else if (state is FeturedBooksFailure) {
           return CustomErrorWidget(error: state.errorMessage);
         }
         else  {
