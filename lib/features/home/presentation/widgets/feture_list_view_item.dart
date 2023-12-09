@@ -2,8 +2,8 @@ import 'package:bookly/core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 
 class FetureListViewItem extends StatelessWidget {
-  const FetureListViewItem({super.key});
-
+  const FetureListViewItem({super.key,required this.url});
+   final String url;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -13,7 +13,7 @@ class FetureListViewItem extends StatelessWidget {
           color: Colors.red,
           borderRadius: BorderRadius.circular(16),
           image: DecorationImage(
-              image: AssetImage(AppAssets.test1), fit: BoxFit.fill),
+              image: NetworkImage(url), fit: BoxFit.fill),
         ),
       ),
     );

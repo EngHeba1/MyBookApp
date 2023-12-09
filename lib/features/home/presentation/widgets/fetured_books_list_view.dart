@@ -21,13 +21,14 @@ class FeturedBooks extends StatelessWidget {
                 .size
                 .height * .3,
             child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) =>
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24),
-                child: FetureListViewItem(),
+                child: FetureListViewItem(url: state.books[index].volumeInfo.imageLinks.thumbnail),
               ),
-              itemCount: 4,
+              itemCount: state.books.length,
             ),
           );
         }
