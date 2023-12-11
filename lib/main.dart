@@ -31,7 +31,7 @@ class Bookly extends StatelessWidget {
         FeturedBooksCubit(getIt.get<HomeRepoImplement>())..fetchFeturedBooks()
     ,),
          BlocProvider(create: (context) =>
-      NewstBooksCubit(getIt.get<HomeRepoImplement>())),
+      NewstBooksCubit(getIt.get<HomeRepoImplement>())..fetchNewstBooks()),
                    ],
     child: ScreenUtilInit(
     designSize: const Size(360, 690),

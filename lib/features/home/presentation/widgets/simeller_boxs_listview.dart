@@ -14,7 +14,7 @@ class BestViewListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => const Padding(
           padding: EdgeInsets.symmetric(horizontal: 5),
-          child: FetureListViewItem(url: 'EgZjaHJvbWUyBggAEEUYOTIKCAEQABixAxiABDIGCAIQRRhAMgcIAxAAGIAEMgcIBBAuGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMzc0NGowajeoAgCwAgA',),
+          child: CustomBookImage(url: 'EgZjaHJvbWUyBggAEEUYOTIKCAEQABixAxiABDIGCAIQRRhAMgcIAxAAGIAEMgcIBBAuGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMzc0NGowajeoAgCwAgA',),
         ),
         itemCount: 4,
       ),

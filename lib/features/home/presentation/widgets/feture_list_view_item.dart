@@ -2,8 +2,8 @@ import 'package:bookly/core/constants/app_assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class FetureListViewItem extends StatelessWidget {
-  const FetureListViewItem({super.key,required this.url});
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key,required this.url});
    final String url;
   @override
   Widget build(BuildContext context) {

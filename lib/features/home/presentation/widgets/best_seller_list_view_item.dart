@@ -1,3 +1,5 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/presentation/widgets/feture_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,8 +9,8 @@ import '../../../../core/uitls/style/text_style.dart';
 import '../views/book_details_view.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+   BestSellerListViewItem({required this.bookModel});
+   BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,17 +21,18 @@ class BestSellerListViewItem extends StatelessWidget {
           onTap: () => GoRouter.of(context).push("/BookDetailsView"),
           child: Row(
             children: [
-              AspectRatio(
-                aspectRatio: 2.5 / 4,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(16),
-                    image: DecorationImage(
-                        image: AssetImage(AppAssets.test1), fit: BoxFit.fill),
-                  ),
-                ),
-              ),
+              // AspectRatio(
+              //   aspectRatio: 2.5 / 4,
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       color: Colors.red,
+              //       borderRadius: BorderRadius.circular(16),
+              //       image: DecorationImage(
+              //           image: AssetImage(AppAssets.test1), fit: BoxFit.fill),
+              //     ),
+              //   ),
+              // ),
+              CustomBookImage(url: bookModel.volumeInfo.imageLinks.thumbnail),
               const SizedBox(
                 width: 30,
               ),
@@ -41,25 +44,26 @@ class BestSellerListViewItem extends StatelessWidget {
                     SizedBox(
                         width: MediaQuery.of(context).size.width * .55,
                         child: Text(
-                          "Harry Potter and the Goblet of Fire",
+                          bookModel.volumeInfo.title??"",
                           style: MyTextStyle.textStyle20(),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         )),
-                    Text("J.K. Rowling",
+                    Text(bookModel.volumeInfo.authors?[0]??"",
                         style: MyTextStyle.textStyle14()
                             .copyWith(color: Colors.white.withOpacity(0.7))),
                     Row(
                       children: [
-                        Text("19.99 €",
+                        Text("Free",
                             style: MyTextStyle.textStyle20().copyWith(
                                 fontFamily: "Montserrat",
                                 fontWeight: FontWeight.w800)),
-                        SizedBox(width: 45),
+                        SizedBox(width: MediaQuery.of(context).size.width*.3),
                         Image.asset(AppAssets.star),
-                        Text("4.8", style: MyTextStyle.textStyle16()),
+                        Text((bookModel.volumeInfo.averageRating??"0") as String
+                            , style: MyTextStyle.textStyle16()),
                         SizedBox(width: 10),
-                        Text("(2390)",
+                        Text((bookModel.volumeInfo.ratingsCount??"0") as String,
                             style: MyTextStyle.textStyle14().copyWith(
                               color: Colors.white.withOpacity(0.7),
                             ))

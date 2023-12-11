@@ -26,7 +26,7 @@ class FeturedBooks extends StatelessWidget {
               itemBuilder: (context, index) =>
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24),
-                child: FetureListViewItem(url: state.books[index].volumeInfo.imageLinks.thumbnail),
+                child: CustomBookImage(url: state.books[index].volumeInfo.imageLinks.thumbnail),
               ),
               itemCount: state.books.length,
             ),
