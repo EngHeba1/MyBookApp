@@ -18,7 +18,8 @@ class BestSellerListViewItem extends StatelessWidget {
       child: SizedBox(
         height: 125,
         child: GestureDetector(
-          onTap: () => GoRouter.of(context).push("/BookDetailsView"),
+          onTap: () => GoRouter.of(context).push("/BookDetailsView",extra: bookModel),
+          //هاخد الموديل وأنا رايحه للسكرين الي بعدها واروح استقبله
           child: Row(
             children: [
               // AspectRatio(
