@@ -5,7 +5,7 @@ import '../../../../core/uitls/style/text_style.dart';
 import 'book_rateing.dart';
 import 'books_action.dart';
 import 'custom_book_details_appbar.dart';
-import 'feture_list_view_item.dart';
+import 'custom_book_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key});

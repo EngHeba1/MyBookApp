@@ -9,7 +9,7 @@ import '../../../../core/uitls/style/text_style.dart';
 import '../widgets/book_details_body.dart';
 import '../widgets/books_action.dart';
 import '../widgets/custom_book_details_appbar.dart';
-import '../widgets/feture_list_view_item.dart';
+import '../widgets/custom_book_image.dart';
 import '../widgets/simeller_boxs_listview.dart';
 
 class BookDetailsView extends StatelessWidget {

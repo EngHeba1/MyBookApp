@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'feture_list_view_item.dart';
+import 'custom_book_image.dart';
 
-class BestViewListView extends StatelessWidget {
-  const BestViewListView({super.key});
+class  SimellerBooksListView extends StatelessWidget {
+  const  SimellerBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {

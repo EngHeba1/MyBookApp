@@ -15,7 +15,7 @@ class SimellrBooksSection extends StatelessWidget {
               "You can also like",
             )),
         SizedBox(height: 8.h),
-        const BestViewListView(),
+        const SimellerBooksListView(),
       ],
     );
   }

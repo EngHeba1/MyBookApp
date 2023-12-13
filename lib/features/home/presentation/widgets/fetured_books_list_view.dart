@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/custom_loading_indecator.dart';
 import '../manger/fetured_books_cubit/fetured_books_cubit.dart';
-import 'feture_list_view_item.dart';
+import 'custom_book_image.dart';
 
 class FeturedBooks extends StatelessWidget {
   const FeturedBooks({super.key});
@@ -26,7 +26,7 @@ class FeturedBooks extends StatelessWidget {
               itemBuilder: (context, index) =>
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24),
-                child: CustomBookImage(url: state.books[index].volumeInfo.imageLinks.thumbnail),
+                child: CustomBookImage(url: state.books[index].volumeInfo.imageLinks?.thumbnail??""),
               ),
               itemCount: state.books.length,
             ),
