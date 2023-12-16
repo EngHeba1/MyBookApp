@@ -4,8 +4,9 @@ import '../../../../core/constants/app_assets.dart';
 import '../../../../core/uitls/style/text_style.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
+  const BookRating({super.key,required this.rating,required this.count});
+ final num rating;
+  final num count;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,9 +16,10 @@ class BookRating extends StatelessWidget {
         // copyWith(fontFamily: "Montserrat",fontWeight: FontWeight.w800) ),
         SizedBox(width: 45),
         Image.asset(AppAssets.star),
-        Text("4.8", style: MyTextStyle.textStyle16()),
+        Text("$rating"
+            , style: MyTextStyle.textStyle16()),
         SizedBox(width: 10),
-        Text("(2390)",
+        Text("$count" ,
             style: MyTextStyle.textStyle14().copyWith(
               color: Colors.white.withOpacity(0.7),
             ))

@@ -21,13 +21,14 @@ class SimellerBooksListView extends StatelessWidget {
                   .height * .15,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
+
                 itemBuilder: (context, index) =>
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
+                 Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: CustomBookImage(
-                    url: 'EgZjaHJvbWUyBggAEEUYOTIKCAEQABixAxiABDIGCAIQRRhAMgcIAxAAGIAEMgcIBBAuGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMzc0NGowajeoAgCwAgA',),
+                    url: state.books[index].volumeInfo?.imageLinks?.thumbnail??"",),
                 ),
-                itemCount: 4,
+                itemCount: state.books.length,
               ),
             );
           }

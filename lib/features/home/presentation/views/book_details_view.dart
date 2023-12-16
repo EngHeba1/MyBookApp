@@ -28,7 +28,7 @@ class _BookDetailsViewState extends State<BookDetailsView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: BookDetailsBody(),
+        body: BookDetailsBody(bookModel:widget. bookModel),
       ),
     );
   }

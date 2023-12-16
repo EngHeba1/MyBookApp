@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/widgets/simeller_books_section.dart';
 import 'package:bookly/features/home/presentation/widgets/simeller_boxs_listview.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,8 @@ import 'custom_book_details_appbar.dart';
 import 'custom_book_image.dart';
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key});
-
+  const BookDetailsBody({super.key,required this.bookModel});
+ final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -23,7 +24,7 @@ class BookDetailsBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const BookDetailsSection(),
+               BookDetailsSection(bookModel:bookModel ),
               Expanded(child: SizedBox(height: 30.h)),
               const SimellrBooksSection(),
               const SizedBox(

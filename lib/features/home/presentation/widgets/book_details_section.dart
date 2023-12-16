@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +9,9 @@ import 'custom_book_details_appbar.dart';
 import 'custom_book_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection({required this.bookModel, super.key});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +21,27 @@ class BookDetailsSection extends StatelessWidget {
         Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * .2),
-            child: CustomBookImage(url: 'EgZjaHJvbWUyBggAEEUYOTIKCAEQABixAxiABDIGCAIQRRhAMgcIAxAAGIAEMgcIBBAuGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMzc0NGowajeoAgCwAgA',)),
+            child: CustomBookImage(
+              url: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
+            )),
         SizedBox(height: 43.h),
-        Text("The Jungle Book",
-            style: MyTextStyle.textStyle30()
-                .copyWith(fontWeight: FontWeight.w800)),
+        Text(bookModel.volumeInfo?.title ?? "",
+            textAlign: TextAlign.center,
+            style: MyTextStyle.textStyle20().copyWith(
+              fontWeight: FontWeight.w800,
+            )),
         SizedBox(height: 4.h),
         Opacity(
             opacity: .7,
-            child: Text("     Rudyard Kipling",
+            child: Text(bookModel.volumeInfo?.authors?[0] ?? "",
                 style: MyTextStyle.textStyle18().copyWith(
                     fontWeight: FontWeight.w500, fontStyle: FontStyle.italic))),
         SizedBox(height: 14.h),
-        Center(child: BookRating()),
+        Center(
+            child: BookRating(
+          rating: (bookModel.volumeInfo.averageRating ?? 0),
+          count: bookModel.volumeInfo.ratingsCount ?? 0,
+        )),
         SizedBox(height: 37.h),
         BookAction(),
       ],
