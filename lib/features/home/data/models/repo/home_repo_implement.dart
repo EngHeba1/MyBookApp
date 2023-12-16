@@ -40,7 +40,7 @@ class HomeRepoImplement implements HomeRepo{
   Future<Either<Failure, List<BookModel>>> fetchNewstBook() async{
        try {
          var data=await apiService.get(endPoint:
-         "volumes?Sorting=newest&q=computer Science&Filtering=free-ebooks");//return map but i want list so i need to
+         "volumes?Sorting=newest&q=subject: programming&Filtering=free-ebooks");//return map but i want list so i need to
            //maping it
          
          List<BookModel> books=[];  // i want to return this list
