@@ -29,7 +29,7 @@ class BookAction extends StatelessWidget {
               onPressed:() async {
                 final Uri _url = Uri.parse(bookModel.volumeInfo.previewLink!);
                if (!await canLaunchUrl(_url)) {
-              //throw Exception('Could not launch $_url');
+              throw Exception('Could not launch $_url');
                  print("?????????????????????????????????????////");
               }
                else{
