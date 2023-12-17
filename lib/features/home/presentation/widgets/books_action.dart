@@ -27,7 +27,7 @@ class BookAction extends StatelessWidget {
           child: CustomButton(
               text: "Free preview",
               onPressed:() async {
-                final Uri _url = Uri.parse(bookModel.volumeInfo.previewLink!);
+                final Uri _url = Uri.parse(bookModel.volumeInfo?.previewLink??"");
                if (!await canLaunchUrl(_url)) {
               throw Exception('Could not launch $_url');
                  print("?????????????????????????????????????////");

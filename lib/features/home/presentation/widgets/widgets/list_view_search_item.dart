@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/constants/app_assets.dart';
-import '../../../../core/uitls/style/text_style.dart';
+import '../../../../../core/constants/app_assets.dart';
+import '../../../../../core/uitls/style/text_style.dart';
 
 class ListViewSearchItem extends StatelessWidget {
   const ListViewSearchItem({super.key});

@@ -9,16 +9,21 @@ class CustomTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
           hintText: "Search",
-          suffixIcon: IconButton(
-            icon: Opacity(
-              opacity: .7,
-              child: const Icon(
-                FontAwesomeIcons.magnifyingGlass,
-                size: 18,
-                color: Colors.white,
+          suffixIcon: GestureDetector(
+            onTap: (){
+
+            },
+            child: IconButton(
+              icon: const Opacity(
+                opacity: .7,
+                child: Icon(
+                  FontAwesomeIcons.magnifyingGlass,
+                  size: 18,
+                  color: Colors.white,
+                ),
               ),
+              onPressed: () {},
             ),
-            onPressed: () {},
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),

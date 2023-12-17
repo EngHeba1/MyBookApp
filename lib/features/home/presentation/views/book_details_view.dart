@@ -20,7 +20,7 @@ class _BookDetailsViewState extends State<BookDetailsView> {
   void initState() {
 
     BlocProvider.of<SimellerBooksCubit>(context).fetchSimellerBooks(
-        category: widget.bookModel.volumeInfo.categories![0]);
+        category: widget.bookModel.volumeInfo?.categories![0]??"");
     super.initState();
   }
 

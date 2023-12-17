@@ -5,10 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/data/models/repo/home_repo_implement.dart';
+import '../../features/home/presentation/manger/search_cubit/search_cubit.dart';
 import '../../features/home/presentation/manger/similer_books_cubit/simeller_books_cubit.dart';
 import '../../features/home/presentation/views/book_details_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
-import '../../features/search/presentaion/view/search_view.dart';
+import '../../features/home/presentation/views/search_view.dart';
 import '../../features/splash/presentation/view/widgets/splash_view_body.dart';
 
 class AppRouter {
@@ -31,7 +32,9 @@ class AppRouter {
       ),
       GoRoute(
         path: '/SearchView',
-        builder: (context, state) => SearchView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) =>  SearchCubit(homeRepo: getIt.get<HomeRepoImplement>()),
+            child: SearchView(bookModel: state.extra as BookModel,)),
       ),
     ],
   );

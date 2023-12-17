@@ -29,7 +29,7 @@ class FeturedBooks extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 24),
                 child: GestureDetector(
                     onTap: () => GoRouter.of(context).push("/BookDetailsView",extra: state.books[index]),
-                    child: CustomBookImage(url: state.books[index].volumeInfo.imageLinks?.thumbnail??"")),
+                    child: CustomBookImage(url: state.books[index].volumeInfo?.imageLinks?.thumbnail??"")),
               ),
               itemCount: state.books.length,
             ),

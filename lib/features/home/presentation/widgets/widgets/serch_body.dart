@@ -1,11 +1,17 @@
-import 'package:bookly/features/search/presentaion/widgets/search_result_list_view.dart';
-import 'package:flutter/material.dart';
 
-import '../../../../core/uitls/style/text_style.dart';
+import 'package:bookly/features/home/presentation/widgets/widgets/search_result_list_view.dart';
+import 'package:flutter/material.dart';
+import '../../../../../core/uitls/style/text_style.dart';
 import 'custom_textfiled.dart';
 
-class SerchBody extends StatelessWidget {
+class SerchBody extends StatefulWidget {
   const SerchBody({super.key});
+
+  @override
+  State<SerchBody> createState() => _SerchBodyState();
+}
+
+class _SerchBodyState extends State<SerchBody> {
 
   @override
   Widget build(BuildContext context) {

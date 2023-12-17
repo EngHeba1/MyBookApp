@@ -90,4 +90,31 @@ class HomeRepoImplement implements HomeRepo{
     }
   }
 
+  @override
+  Future<Either<Failure, List<BookModel>>> searchResult({required String q}) async{
+    try {
+      var data=await apiService.get(endPoint:
+      "volumes?Sorting=relevance&q=intitle");//return map but i want list so i need to
+      //maping it
+
+      List<BookModel> books=[];  // i want to return this list
+
+      for( var item  in data["items"]){   //var item "list "
+        try {
+          books.add(BookModel.fromJson(item));
+        }  catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
+//
+      }
+      return right(books);
+    } on Exception catch (e) {
+      if(e is DioError)
+      {
+        return left(ServierFailure.fromDioError(e));
+      }
+      return left(ServierFailure(e.toString()));
+    }
+  }
+
 }
