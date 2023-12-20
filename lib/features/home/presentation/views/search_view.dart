@@ -14,15 +14,11 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
-  @override
-  void initState() {
-    BlocProvider.of<SearchCubit>(context).fetchSearchBooks(q: widget.bookModel.volumeInfo?.title??"" );
-    super.initState();
-  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SerchBody(),
+    return  Scaffold(
+      body: SerchBody(bookModel: widget.bookModel),
     );
   }
 }

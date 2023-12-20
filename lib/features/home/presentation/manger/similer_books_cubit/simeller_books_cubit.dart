@@ -12,10 +12,10 @@ class SimellerBooksCubit extends Cubit<SimellerBooksState> {
 
 
 
-  Future<void> fetchSimellerBooks({required String category})async{
+  Future<void> fetchSimellerBooks({required String title})async{
     emit(SimellerBooksLoding());
     
-    var result= await homeRepo.fetchSimellerBooks(category: category);
+    var result= await homeRepo.fetchSimellerBooks(title: title );
     result.fold((Failure) {
 
       emit(SimellerBooksFauiler(Failure.errorMessage));

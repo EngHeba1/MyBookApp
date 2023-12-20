@@ -18,14 +18,15 @@ class SearchResultListView extends StatelessWidget {
           //  physics: const NeverScrollableScrollPhysics(),
           // shrinkWrap: true,
           padding: EdgeInsets.zero,
-          itemBuilder: (context, index) => ListViewSearchItem(),
-          itemCount: 10,
+          itemBuilder: (context, index) => const ListViewSearchItem(),
+          itemCount: state.books.length,
         );
       }
       if( state is SearchFaulier ){
+
           return CustomErrorWidget(error: state.errorMessage);
       }
-      return CustomLoadingIndecator();
+      return const CustomLoadingIndecator();
     });
 
 

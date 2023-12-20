@@ -64,10 +64,10 @@ class HomeRepoImplement implements HomeRepo{
     }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSimellerBooks({required String category}) async{
+  Future<Either<Failure, List<BookModel>>> fetchSimellerBooks({required String title}) async{
     try {
       var data=await apiService.get(endPoint:
-      "volumes?q=subject:computer Science&Filtering=free-ebooks&Sorting=relevance");//return map but i want list so i need to
+      "volumes?Sorting=relevance&Filtering=free-ebooks&q=$title");//return map but i want list so i need to
       //maping it
 
       List<BookModel> books=[];  // i want to return this list
