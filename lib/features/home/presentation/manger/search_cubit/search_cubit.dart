@@ -10,10 +10,10 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit({required this.homeRepo}) : super(SearchInitial());
   HomeRepo homeRepo;
 
-  Future<void> fetchSearchBooks({ required String q})async{
+  Future<void> fetchSearchBooks({ required String querySearch})async{
 
     emit(Searchloading());
-    var result= await homeRepo.searchResult(q: q);
+    var result= await homeRepo.searchResult(querySearch: querySearch);
     result.fold((Failure) {
       emit(SearchFaulier(Failure.errorMessage));
     }

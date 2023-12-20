@@ -91,10 +91,10 @@ class HomeRepoImplement implements HomeRepo{
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> searchResult({required String q}) async{
+  Future<Either<Failure, List<BookModel>>> searchResult({required String querySearch}) async{
     try {
       var data=await apiService.get(endPoint:
-      "volumes?Sorting=relevance&q=intitle");//return map but i want list so i need to
+      "volumes?Sorting=relevance&q=querySearch");//return map but i want list so i need to
       //maping it
 
       List<BookModel> books=[];  // i want to return this list

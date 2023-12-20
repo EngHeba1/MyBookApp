@@ -12,5 +12,5 @@ abstract class HomeRepo{
      { required String title});
 
  Future<Either<Failure,List<BookModel>>> searchResult(
-     {required String q});
+     {required String querySearch});
 }
