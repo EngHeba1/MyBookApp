@@ -18,7 +18,7 @@ class SearchResultListView extends StatelessWidget {
           //  physics: const NeverScrollableScrollPhysics(),
           // shrinkWrap: true,
           padding: EdgeInsets.zero,
-          itemBuilder: (context, index) => const ListViewSearchItem(),
+          itemBuilder: (context, index) => const ListViewSearchItem(bookModel: state.books[]),
           itemCount: state.books.length,
         );
       }

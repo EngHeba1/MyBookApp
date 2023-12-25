@@ -7,10 +7,22 @@ import '../../../data/models/book_model/book_model.dart';
 import '../../manger/search_cubit/search_cubit.dart';
 import 'custom_textfiled.dart';
 
-class SerchBody extends StatelessWidget {
-  const SerchBody({super.key});
+class SerchBody extends StatefulWidget {
+   SerchBody();
+
+  @override
+  State<SerchBody> createState() => _SerchBodyState();
+}
+
+class _SerchBodyState extends State<SerchBody> {
+  @override
+  void initState() {
+    BlocProvider.of<SearchCubit>(context).fetchSearchBooks(querySearch: text);
+    super.initState();
+  }
  // final BookModel bookModel;
   String? text;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,8 +30,11 @@ class SerchBody extends StatelessWidget {
       child: Column(
         children: [
           CustomTextField(
-              onChange:  (text){},
-              onPressed:  ),
+              onChange:  (value){
+                text=value;
+              },
+              onPressed: () {},
+          ),
 
           const SizedBox(
             height: 10,

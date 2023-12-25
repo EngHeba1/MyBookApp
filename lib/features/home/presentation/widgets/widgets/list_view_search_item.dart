@@ -1,3 +1,5 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/presentation/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -5,8 +7,8 @@ import '../../../../../core/constants/app_assets.dart';
 import '../../../../../core/uitls/style/text_style.dart';
 
 class ListViewSearchItem extends StatelessWidget {
-  const ListViewSearchItem({super.key});
-
+  const ListViewSearchItem({super.key,required this.bookModel});
+ final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,17 +19,7 @@ class ListViewSearchItem extends StatelessWidget {
           onTap: () => GoRouter.of(context).push("/BookDetailsView"),
           child: Row(
             children: [
-              AspectRatio(
-                aspectRatio: 2.5 / 4,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(16),
-                    image: DecorationImage(
-                        image: AssetImage(AppAssets.test1), fit: BoxFit.fill),
-                  ),
-                ),
-              ),
+              CustomBookImage(url: bookModel.volumeInfo?.imageLinks?.thumbnail??""),
               const SizedBox(
                 width: 30,
               ),
