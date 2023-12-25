@@ -10,13 +10,17 @@ import 'custom_textfiled.dart';
 class SerchBody extends StatelessWidget {
   const SerchBody({super.key});
  // final BookModel bookModel;
+  String? text;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
       child: Column(
         children: [
-          CustomTextField(controller: ),
+          CustomTextField(
+              onChange:  (text){},
+              onPressed:  ),
+
           const SizedBox(
             height: 10,
           ),
