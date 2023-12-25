@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +19,7 @@ class SearchResultListView extends StatelessWidget {
           //  physics: const NeverScrollableScrollPhysics(),
           // shrinkWrap: true,
           padding: EdgeInsets.zero,
-          itemBuilder: (context, index) => const ListViewSearchItem(bookModel: state.books[]),
+          itemBuilder: (context, index) =>  ListViewSearchItem(bookModel:state.books[index]),
           itemCount: state.books.length,
         );
       }

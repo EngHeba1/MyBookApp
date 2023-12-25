@@ -2,6 +2,7 @@
 import 'package:bookly/features/home/presentation/widgets/widgets/search_result_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../core/uitls/style/text_style.dart';
 import '../../../data/models/book_model/book_model.dart';
 import '../../manger/search_cubit/search_cubit.dart';
@@ -17,7 +18,7 @@ class SerchBody extends StatefulWidget {
 class _SerchBodyState extends State<SerchBody> {
   @override
   void initState() {
-    BlocProvider.of<SearchCubit>(context).fetchSearchBooks(querySearch: text);
+    //BlocProvider.of<SearchCubit>(context).fetchSearchBooks(querySearch: text);
     super.initState();
   }
  // final BookModel bookModel;
@@ -29,24 +30,39 @@ class _SerchBodyState extends State<SerchBody> {
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
       child: Column(
         children: [
-          CustomTextField(
-              onChange:  (value){
-                text=value;
-              },
-              onPressed: () {},
-          ),
+          Row(
+            children: [
+              IconButton(onPressed: () {
+              GoRouter.of(context).pop();
+            }, icon: const Icon(Icons.close)),
+              Expanded(
+                child: CustomTextField(
+                    onChange:  (value){
+                      setState(() {
+                        text=value;
+                      });
+                
+                    },
+                    onPressed: () {
+                      setState(() {
+                        BlocProvider.of<SearchCubit>(context).fetchSearchBooks(querySearch: text);
+                      });
+                
+                    },
+                ),
+              ),]),
 
-          const SizedBox(
-            height: 10,
-          ),
-          Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Search Result",
-                style: MyTextStyle.textStyle20(),
-              )),
-          const Expanded(child: SearchResultListView())
-        ],
+              const SizedBox(
+                height: 10,
+              ),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Search Result",
+                    style: MyTextStyle.textStyle20(),
+                  )),
+              const Expanded(child: SearchResultListView())
+            ],
       ),
     );
   }
