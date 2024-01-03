@@ -36,21 +36,9 @@ class _SerchBodyState extends State<SerchBody> {
               GoRouter.of(context).pop();
             }, icon: const Icon(Icons.close)),
               Expanded(
-                child: CustomTextField(
-                    onChange:  (value){
-                      setState(() {
-                        text=value;
-                      });
-                
-                    },
-                    onPressed: () {
-                      setState(() {
-                        BlocProvider.of<SearchCubit>(context).fetchSearchBooks(querySearch: text);
-                      });
-                
-                    },
+                child: CustomTextField()
                 ),
-              ),]),
+             ]),
 
               const SizedBox(
                 height: 10,

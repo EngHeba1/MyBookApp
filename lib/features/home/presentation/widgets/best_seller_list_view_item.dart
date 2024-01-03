@@ -16,29 +16,20 @@ class BestSellerListViewItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
       child: SizedBox(
-        height: 125,
+        height: 120,
         child: GestureDetector(
           onTap: () => GoRouter.of(context).push("/BookDetailsView",extra: bookModel),
           //هاخد الموديل وأنا رايحه للسكرين الي بعدها واروح استقبله
           child: Row(
             children: [
-              // AspectRatio(
-              //   aspectRatio: 2.5 / 4,
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //       color: Colors.red,
-              //       borderRadius: BorderRadius.circular(16),
-              //       image: DecorationImage(
-              //           image: AssetImage(AppAssets.test1), fit: BoxFit.fill),
-              //     ),
-              //   ),
-              // ),
-              CustomBookImage(url: bookModel.volumeInfo?.imageLinks?.thumbnail??""),
+              Expanded(
+                flex: 2,
+                  child: CustomBookImage(url: bookModel.volumeInfo?.imageLinks?.thumbnail??"")),
               const SizedBox(
                 width: 30,
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * .4,
+              Expanded(
+                flex: 7,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

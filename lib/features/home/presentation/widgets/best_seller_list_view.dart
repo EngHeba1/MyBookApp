@@ -1,3 +1,4 @@
+import 'package:bookly/core/shimmer/shimmer_newst_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,9 +20,10 @@ class BestSellerListView extends StatelessWidget {
     return BlocBuilder<NewstBooksCubit,NewstBooksState>(
       builder:(context, state) {
         if(state is NewstBooksSuccess){
-          return  ListView.builder(
+          return   ListView.separated(
+            separatorBuilder:(context, index) => const SizedBox(height: 15.0),
             physics: const NeverScrollableScrollPhysics(),
-            // shrinkWrap: true,
+            shrinkWrap: true,
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) => BestSellerListViewItem(bookModel: state.books[index]),
             itemCount: state.books.length,
@@ -43,7 +45,7 @@ class BestSellerListView extends StatelessWidget {
           //   ),
           // );
        // }
-        return CustomLoadingIndecator();
+        return const ShimmerNewsetListView();
       } ,
 
     );

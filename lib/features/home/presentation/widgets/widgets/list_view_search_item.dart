@@ -16,12 +16,12 @@ class ListViewSearchItem extends StatelessWidget {
       child: SizedBox(
         height: 125,
         child: GestureDetector(
-          onTap: () => GoRouter.of(context).push("/BookDetailsView"),
+          onTap: () => GoRouter.of(context).push("/BookDetailsView",extra: bookModel as BookModel),
           child: Row(
             children: [
               CustomBookImage(url: bookModel.volumeInfo?.imageLinks?.thumbnail??""),
               const SizedBox(
-                width: 30,
+                width: 25,
               ),
               Container(
                 height: MediaQuery.of(context).size.height * .4,
@@ -31,30 +31,30 @@ class ListViewSearchItem extends StatelessWidget {
                     SizedBox(
                         width: MediaQuery.of(context).size.width * .55,
                         child: Text(
-                          "Harry Potter and the Goblet of Fire",
+                          bookModel.volumeInfo?.title ?? "",
                           style: MyTextStyle.textStyle20(),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         )),
-                    Text("J.K. Rowling",
+                    Text(bookModel.volumeInfo?.authors?[0] ?? "",
                         style: MyTextStyle.textStyle14()
                             .copyWith(color: Colors.white.withOpacity(0.7))),
-                    Row(
-                      children: [
-                        Text("19.99 €",
-                            style: MyTextStyle.textStyle20().copyWith(
-                                fontFamily: "Montserrat",
-                                fontWeight: FontWeight.w800)),
-                        SizedBox(width: 45),
-                        Image.asset(AppAssets.star),
-                        Text("4.8", style: MyTextStyle.textStyle16()),
-                        SizedBox(width: 10),
-                        Text("(2390)",
-                            style: MyTextStyle.textStyle14().copyWith(
-                              color: Colors.white.withOpacity(0.7),
-                            ))
-                      ],
-                    )
+                    // Row(
+                    //   children: [
+                    //     Text("19.99 €",
+                    //         style: MyTextStyle.textStyle20().copyWith(
+                    //             fontFamily: "Montserrat",
+                    //             fontWeight: FontWeight.w800)),
+                    //     SizedBox(width: 45),
+                    //     Image.asset(AppAssets.star),
+                    //     Text("4.8", style: MyTextStyle.textStyle16()),
+                    //     SizedBox(width: 10),
+                    //     Text("(2390)",
+                    //         style: MyTextStyle.textStyle14().copyWith(
+                    //           color: Colors.white.withOpacity(0.7),
+                    //         ))
+                    //   ],
+                    // )
                   ],
                 ),
               )

@@ -1,16 +1,20 @@
+import 'package:bookly/features/home/presentation/manger/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextField extends StatelessWidget {
-   CustomTextField({super.key, this.onChange ,this .onPressed});
-  void Function(String)? onChange;
-   void Function()? onPressed;
-  // TextEditingController? controller;
+   CustomTextField({super.key});
+ // void Function(String)? onChange;
+   //void Function()? onPressed;
+  final TextEditingController controller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onChanged:onChange,
-      //controller: controller,
+      onChanged:(value) {
+        BlocProvider.of<SearchCubit>(context).fetchSearchBooks(querySearch: value);
+      },
+      controller: controller,
       decoration: InputDecoration(
           hintText: "Search",
           suffixIcon: IconButton(
@@ -22,7 +26,9 @@ class CustomTextField extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            onPressed: onPressed,
+            onPressed: () {
+              BlocProvider.of<SearchCubit>(context).fetchSearchBooks(querySearch: controller.text);
+            },
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
