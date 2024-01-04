@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/uitls/style/text_style.dart';
 import '../views/book_details_view.dart';
+import 'book_rateing.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
       BestSellerListViewItem({required this.bookModel});
@@ -14,56 +15,58 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: SizedBox(
-        height: 120,
+        height: 133,
         child: GestureDetector(
           onTap: () => GoRouter.of(context).push("/BookDetailsView",extra: bookModel),
           //هاخد الموديل وأنا رايحه للسكرين الي بعدها واروح استقبله
           child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 flex: 2,
-                  child: CustomBookImage(url: bookModel.volumeInfo?.imageLinks?.thumbnail??"")),
-              const SizedBox(
-                width: 30,
-              ),
+                  child: CustomBookImage(url: bookModel.volumeInfo?.imageLinks?.thumbnail??'http://ecx.images-amazon.com/images/I/51vZFp-ETML.jpg')),
+
               Expanded(
                 flex: 7,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                        width: MediaQuery.of(context).size.width * .55,
-                        child: Text(
-                          bookModel.volumeInfo?.title??"",
-                          style: MyTextStyle.textStyle20(),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        )),
-                       Text(bookModel.volumeInfo?.authors?[0]??"",
-                          style: MyTextStyle.textStyle14()
-                              .copyWith(color: Colors.white.withOpacity(0.7),
-                            overflow: TextOverflow.ellipsis,)),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0, vertical: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                    Row(
-                      children: [
-                        Text("Free",
-                            style: MyTextStyle.textStyle20().copyWith(
-                                fontFamily: "Montserrat",
-                                fontWeight: FontWeight.w800)),
-                        SizedBox(width: MediaQuery.of(context).size.width*.3),
-                        Image.asset(AppAssets.star),
-                        Text((bookModel.volumeInfo?.averageRating??"0") as String
-                            , style: MyTextStyle.textStyle14()),
-                        SizedBox(width: 10),
-                        Text((bookModel.volumeInfo?.ratingsCount??"0") as String,
-                            style: MyTextStyle.textStyle14().copyWith(
-                              color: Colors.white.withOpacity(0.7),
-                            ))
-                      ],
-                    )
-                  ],
+                    children: [
+                      SizedBox(
+                          width: MediaQuery.of(context).size.width * .4,
+                          child: Text(
+                            bookModel.volumeInfo?.title??"",
+                            style: MyTextStyle.textStyle20(),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          )),
+                         Text(bookModel.volumeInfo?.authors?[0]??"",
+                            style: MyTextStyle.textStyle14()
+                                .copyWith(color: Colors.white.withOpacity(0.7),
+                              overflow: TextOverflow.ellipsis,)),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                           " free",
+                            style: MyTextStyle.textStyle20()
+                            ,
+                          ),
+                          BookRating(
+                            rating: bookModel.volumeInfo!.averageRating ?? 0,
+                            count: bookModel.volumeInfo!.ratingsCount ?? 0,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

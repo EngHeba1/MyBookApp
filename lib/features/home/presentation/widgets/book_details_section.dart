@@ -9,23 +9,29 @@ import 'custom_book_details_appbar.dart';
 import 'custom_book_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({required this.bookModel, super.key});
+  const BookDetailsSection({required this.book, super.key});
 
-  final BookModel bookModel;
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         CustomBookDetailsAppBar(),
         Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * .2),
-            child: CustomBookImage(
-              url: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
-            )),
-        SizedBox(height: 43.h),
-        Text(bookModel.volumeInfo?.title ?? "",
+          padding: EdgeInsets.symmetric(horizontal: width * 0.22),
+        child: AspectRatio(
+        aspectRatio: 2.7 / 4,
+        child: CustomBookImage(
+         borderRadius: 10.0,
+         url:  book.volumeInfo!.imageLinks?.thumbnail ??
+    'http://ecx.images-amazon.com/images/I/51vZFp-ETML.jpg',
+    ),
+    ),
+    ),
+        SizedBox(height: 10.h),
+        Text(book.volumeInfo?.title ?? 'Title Not Found',
             textAlign: TextAlign.center,
             style: MyTextStyle.textStyle20().copyWith(
               fontWeight: FontWeight.w800,
@@ -33,18 +39,20 @@ class BookDetailsSection extends StatelessWidget {
         SizedBox(height: 4.h),
         Opacity(
             opacity: .7,
-            child: Text(bookModel.volumeInfo?.authors?[0] ?? "",
+            child: Text(book.volumeInfo?.authors?[0] ?? "",
                 style: MyTextStyle.textStyle18().copyWith(
                     fontWeight: FontWeight.w500, fontStyle: FontStyle.italic))),
-        SizedBox(height: 14.h),
+        SizedBox(height: 10.h),
         Center(
             child: BookRating(
-          rating: (bookModel.volumeInfo?.averageRating ?? 0),
-          count: bookModel.volumeInfo?.ratingsCount ?? 0,
+          rating: (book.volumeInfo?.averageRating ?? 0),
+          count: book.volumeInfo?.ratingsCount ?? 0,
         )),
-        SizedBox(height: 37.h),
-        BookAction(bookModel: bookModel),
+        SizedBox(height: 10.h),
+        BookAction(bookModel: book),
       ],
     );
   }
 }
+
+

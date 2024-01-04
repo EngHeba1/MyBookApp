@@ -21,6 +21,7 @@ class SimellerBooksListView extends StatelessWidget {
                   .size
                   .height * .18,
               child: ListView.separated(
+                padding: EdgeInsets.all(8),
                 scrollDirection: Axis.horizontal,
 
                 itemBuilder: (context, index){
